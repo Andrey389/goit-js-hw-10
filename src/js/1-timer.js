@@ -5,15 +5,16 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const fp = document.querySelector('#datetime-picker')._flatpickr;
 let intervalId = null;
-const startBtn = document.querySelector('[data-action-start]');
+const startBtn = document.querySelector('.btn-start');
 
-// flatpickr('#datetime-picker', options);
-// const options = {
-//   enableTime: true,
-//   time_24hr: true,
-//   defaultDate: new Date(),
-//   minuteIncrement: 1,
-//   onClose(selectedDates) {
-//     console.log(selectedDates[0]);
-//   },
-// };
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    console.log(selectedDates[0]);
+  },
+};
+
+flatpickr('#datetime-picker', options);
