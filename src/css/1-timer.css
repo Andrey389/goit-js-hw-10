@@ -30,9 +30,9 @@ body {
     padding: 8px 16px;
     
     border-radius: 8px;
-    background: #CFCFCF;
+    background: #4E75FF;
 
-    color: #989898;
+    color: #FFF;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
@@ -42,6 +42,15 @@ body {
     width: 75px;
     height: 40px;
     border: none;
+}
+.btn-start:hover {
+    background: #6C8CFF;
+}
+.btn-start:disabled {
+    border-radius: 8px;
+    background: #CFCFCF;
+
+    color: #989898;
 }
 .timer {
     width: 346px;
