@@ -1,12 +1,10 @@
 import flatpickr from 'flatpickr';
-import iziToast from 'izitoast';
 
 import 'flatpickr/dist/flatpickr.min.css';
-import 'izitoast/dist/css/iziToast.min.css';
 
 const inputEl = document.querySelector('#datetime-picker');
 const btnEl = document.querySelector('.btn-start');
-const spanValEl = document.querySelector('.value');
+const spanValEl = document.querySelectorAll('.value');
 
 let intervalId = null;
 
@@ -40,6 +38,8 @@ function onClick() {
     }
     const date = convertMs(selectedDates);
     updateTimer(date);
+    btnEl.disabled = true;
+    inputEl.disabled = true;
   }, 1000);
 }
 
@@ -49,15 +49,15 @@ function updateTimer({
   minutes = '00',
   seconds = '00',
 } = {}) {
-  spanValEl[0].textContent = days;
-  spanValEl[1].textContent = hours;
-  spanValEl[2].textContent = minutes;
-  spanValEl[3].textContent = seconds;
+  spanValEl[0].textContent = addLeadingZero(days);
+  spanValEl[1].textContent = addLeadingZero(hours);
+  spanValEl[2].textContent = addLeadingZero(minutes);
+  spanValEl[3].textContent = addLeadingZero(seconds);
 }
-console.log(spanValEl[0]);
-console.log(spanValEl[1]);
-console.log(spanValEl[2]);
-console.log(spanValEl[3]);
+
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
+}
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -77,7 +77,3 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-// console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-// console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-// console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
