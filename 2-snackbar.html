@@ -6,20 +6,20 @@
     <title>Snackbar</title>
     
     
-    <link rel="stylesheet" href="iziToast.min.css">
+  <link rel="stylesheet" href="/goit-js-hw-10/assets/2-snackbar-d001624f.css">
   <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-10c40100.css">
 </head>
 <body>
     <a href="./index.html">Головна</a>
     <form class="form">
-        <label>
+        <label class="delay-ms">
           Delay (ms)
-          <input type="number" name="delay" required />
+          <input class="delay-input" type="number" name="delay" required />
         </label>
       
-        <fieldset>
+        <fieldset class="state-label">
           <legend>State</legend>
-          <label>
+          <label class="ful-input">
             <input type="radio" name="state" value="fulfilled" required />
             Fulfilled
           </label>
@@ -29,10 +29,9 @@
           </label>
         </fieldset>
       
-        <button type="submit">Create notification</button>
+        <button class="btn-submit" type="submit">Create notification</button>
       </form>
       
-    <script src="./js/2-snackbar.js" defer></script>
-    <script src="iziToast.min.js" type="text/javascript"></script>
+    <script src="./js/2-snackbar.js" type="modul"></script>
 </body>
 </html>
