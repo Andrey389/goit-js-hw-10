@@ -3,14 +3,13 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const delayEl = document.querySelector('.delay-input');
-const fulfilledEl = document.querySelector('.ful-input');
-const rejectEl = document.querySelector('.rej-input');
+const stateEl = document.querySelectorAll('.state-radio');
 const btnSubEl = document.querySelector('.btn-submit');
-
+console.log(stateEl);
 function createPromise(delay) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (fulfilledEl) {
+      if (stateEl.values) {
         resolve(`✅ Fulfilled promise in ${delay}ms`);
       } else {
         reject(`❌ Rejected promise in ${delay}ms`);
