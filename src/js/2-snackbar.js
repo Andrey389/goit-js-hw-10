@@ -1,22 +1,37 @@
 import iziToast from 'izitoast';
-
 import 'izitoast/dist/css/iziToast.min.css';
 
-const delayEl = document.querySelector('.delay-input');
-const stateEl = document.querySelectorAll('.state-radio');
-const btnSubEl = document.querySelector('.btn-submit');
-console.log(stateEl);
-function createPromise(delay) {
-  const promise = new Promise((resolve, reject) => {
+const formEl = document.querySelector('.form');
+
+formEl.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const delayEl = document.querySelector('.delay-input');
+  const stateEls = document.querySelectorAll('.state-radio');
+  const delay = parseInt(delayEl.value);
+  let state;
+  stateEls.forEach(radio => {
+    if (radio.checked) {
+      state = radio.value;
+    }
+  });
+  createPromise(delay, state)
+    .then(message => {
+      iziToast.success({ message: message });
+    })
+    .catch(message => {
+      iziToast.error({ message: message });
+    });
+  formEl.reset();
+});
+
+function createPromise(delay, state) {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (stateEl.values) {
-        resolve(`✅ Fulfilled promise in ${delay}ms`);
-      } else {
-        reject(`❌ Rejected promise in ${delay}ms`);
+      if (state === 'fulfilled') {
+        resolve(`:white_check_mark: Fulfilled promise in ${delay}ms`);
+      } else if (state === 'rejected') {
+        reject(`:x: Rejected promise in ${delay}ms`);
       }
     }, delay);
   });
-  return promise;
 }
-const p1 = createPromise(1000);
-console.log(p1);
