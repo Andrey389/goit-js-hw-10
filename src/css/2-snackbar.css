@@ -63,3 +63,10 @@
     border-radius: 8px;
     background: #6C8CFF;
 }
+.iziToast>.iziToast-body .iziToast-icon.ico-success{
+    display: none;
+}
+
+.iziToast>.iziToast-body .iziToast-icon.ico-error{
+    display: none;
+}
