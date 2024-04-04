@@ -16,10 +16,10 @@ formEl.addEventListener('submit', function (event) {
   });
   createPromise(delay, state)
     .then(message => {
-      iziToast.success({ message: message });
+      iziToast.success({ message: message, position: 'topCenter' });
     })
     .catch(message => {
-      iziToast.error({ message: message });
+      iziToast.error({ message: message, position: 'topCenter' });
     });
   formEl.reset();
 });
