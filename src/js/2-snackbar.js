@@ -28,9 +28,9 @@ function createPromise(delay, state) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (state === 'fulfilled') {
-        resolve(`:white_check_mark: Fulfilled promise in ${delay}ms`);
+        resolve(`✅ Fulfilled promise in ${delay}ms`);
       } else if (state === 'rejected') {
-        reject(`:x: Rejected promise in ${delay}ms`);
+        reject(`❌ Rejected promise in ${delay}ms`);
       }
     }, delay);
   });
